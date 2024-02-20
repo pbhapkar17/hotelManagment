@@ -1,1 +1,48 @@
-<p>signin works!</p>
+
+<button mat-raised-button color="accent" (click)="back()">Back</button>
+
+<div class="form-container">
+    <h2>Login Form</h2>
+    <form #loginForm ="ngForm">
+
+        <label> UserName</label><br>
+
+        <input type="text" #userName="ngModel" ngModel name="uName" placeholder="Enter Username"
+         required pattern="^[a-zA-Z ]*$" minlength="2" maxlength="20" [(ngModel)]="name">
+
+        <div *ngIf="userName?.errors?.['required'] && userName?.touched" class="error-msg">
+        User Name is required
+        </div>
+        <div  class="error-msg" *ngIf="userName?.errors?.['pattern'] && !userName?.errors?.['minlength']">
+            Username must be Alphabets
+        </div>
+        <div  class="error-msg" *ngIf="userName?.errors?.['minlength']" >
+            minimum 2 character are required
+        </div>
+        <br>
+
+        <label> Password</label><br>
+
+        <input [type]=" isShowPass ? 'text' : 'password' " #pass="ngModel" ngModel
+         name="password" 
+         required >
+        <!-- pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$" -->
+         <i class="bi bi-eye-fill eye-icon" *ngIf="isShowPass" (click)="toShowPassword()"></i>
+         <i class="bi bi-eye-slash-fill eye-icon2" *ngIf="!isShowPass"  (click)="toShowPassword()"></i>
+
+         <div  *ngIf="pass.errors?.['required'] && pass?.touched" class="error-msg">
+            Password is required
+        </div>
+        <div *ngIf="pass.errors?.['pattern']" class="error-msg">
+            Invalid Pattern
+        </div>
+        <div *ngIf="isValid" class="error-msg">
+          Wrong UserName or password
+        </div>
+        <br><br>
+        <button (click)="login(loginForm.value)" [disabled]="!loginForm.valid">Submit</button>
+    </form>
+     <a routerLink="/signUp">click here to create account..</a>
+
+</div>
+

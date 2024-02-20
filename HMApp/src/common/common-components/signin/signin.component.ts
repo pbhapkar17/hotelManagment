@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
+  name='poonam'
+  isShowPass = false;
+  userData:any;
+  isValid =false;
+  constructor(private route : Router){}
 
+  login(data:any){
+
+  }
+  toShowPassword(){}
+
+  back(){
+    console.log('back..');
+    this.route.navigateByUrl('/landing')
+  }
 }

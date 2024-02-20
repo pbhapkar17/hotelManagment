@@ -1,3 +1,10 @@
-<button  mat-raised-button color="accent" (click)="journey('admin')">Admin</button>
-<button  mat-raised-button color="accent" (click)="journey('owner')">Owner</button>
-<button  mat-raised-button color="accent" (click)="journey('user')">User</button>
+<div *ngIf="initialJourney">
+    <button mat-raised-button color="accent" (click)="journey('admin')">Admin</button>
+    <button mat-raised-button color="accent" (click)="journey('owner')">Owner</button>
+    <button mat-raised-button color="accent" (click)="journey('user')">User</button>
+</div>
+
+<div *ngIf="showSignInBackDiv">
+    <button mat-raised-button color="accent" (click)="back()">Back</button>
+    <button mat-raised-button color="accent" (click)="signIn()">Sign In</button>
+</div>

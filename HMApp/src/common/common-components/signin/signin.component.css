@@ -1,0 +1,24 @@
+.form-container{
+    background-color: aquamarine;
+    height: 300px;
+    width: 300px;
+    border:  3px solid blueviolet;
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    top: 25px;
+
+}
+
+.error-msg{
+    color: red;
+}
+.eye-icon{
+    position: relative;
+    right: 23px;
+}
+.eye-icon2{
+    position: relative;
+    right: 23px;
+}
