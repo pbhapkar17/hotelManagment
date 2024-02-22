@@ -5,7 +5,10 @@ import { SigninComponent } from '../common-components/signin/signin.component';
 import { LandingComponent } from '../common-components/landing/landing.component';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatInputModule,
+    MatRadioModule,
+    MatIconModule,
   ],
   exports:[
     SignupComponent,
     SigninComponent,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatInputModule,
+    MatRadioModule,
+    MatIconModule,
   ]
 })
 export class SharedModule { }

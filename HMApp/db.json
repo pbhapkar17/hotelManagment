@@ -1,7 +1,28 @@
-{ 
-"admin" : [],
-"owner " : [],
-"user" : [],
-"hotelDetails":[],
-"hotelBooking":[]
+{
+  "admin": [
+    {
+      "id": "2be3",
+      "fullName": "poonam",
+      "mob": 989898999,
+      "gender": "female",
+      "pan": null,
+      "password": "poo@123",
+      "confirmPass": "poo@123",
+      "tc": true
+    },
+    {
+      "id": "95a4",
+      "fullName": "Jay",
+      "mob": 989898999,
+      "gender": "male",
+      "pan": null,
+      "password": "jay@123",
+      "confirmPass": "jay@123",
+      "tc": true
+    }
+  ],
+  "owner ": [],
+  "user": [],
+  "hotelDetails": [],
+  "hotelBooking": []
 }
