@@ -63,7 +63,7 @@ export class SignupComponent {
     //   "confirm_Pass":this.signUpForm.value.confirmPass,
     //   "terms_cond":this.signUpForm.value.tc
     // }
-    this.apiCallService.postApiCall(this.signUpForm.value).subscribe(response => {
+    this.apiCallService.postApiCall(this.signUpForm.value,this.journey).subscribe(response => {
       this.apiCallService.fromSignIn = false;
       if (this.journey == 'admin') {
         this.router.navigateByUrl('/admin')

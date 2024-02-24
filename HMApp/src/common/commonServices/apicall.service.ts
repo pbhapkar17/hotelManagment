@@ -5,16 +5,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApicallService {
  journey :any;
- url ="http://localhost:3000/admin"
+ url ="http://localhost:3000/"
   userName: any;
   id: any;
   fromSignIn!: boolean;
  constructor(private httpClient: HttpClient) { }
 
- postApiCall(formData:any){
-  return this.httpClient.post(this.url,formData);
+ postApiCall(formData:any,journey:any){
+  let url = this.url + journey;
+  return this.httpClient.post(url,formData);
  }
- getUserData() {
-  return this.httpClient.get(this.url);
+ getUserData(journey:any) {
+  let url = this.url + journey;
+  return this.httpClient.get(url);
  }
 }

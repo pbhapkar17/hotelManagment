@@ -21,7 +21,7 @@ export class SigninComponent {
   }
 
   getUserData() {
-    this.apiCallService.getUserData().subscribe(response => {
+    this.apiCallService.getUserData(this.journey).subscribe(response => {
       this.userData = response;
       console.log(this.userData);
 

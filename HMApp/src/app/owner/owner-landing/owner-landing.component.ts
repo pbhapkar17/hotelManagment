@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApicallService } from 'src/common/commonServices/apicall.service';
 
@@ -8,29 +9,47 @@ import { ApicallService } from 'src/common/commonServices/apicall.service';
   styleUrls: ['./owner-landing.component.css']
 })
 export class OwnerLandingComponent {
-  
-  fromSignIn:any
-  constructor(private  router: Router, private apicallService:ApicallService){}
+  hoteRegiForm!: FormGroup;
+  fromSignIn: any;
+  show: boolean = false
+  constructor(private router: Router,
+    private apicallService: ApicallService,
+    private formBuilder: FormBuilder,) { }
 
   ngOnInit() {
 
-   this.fromSignIn = this.apicallService.fromSignIn;
+    this.fromSignIn = this.apicallService.fromSignIn;
 
   }
 
-  back(){
+  back() {
     if (this.fromSignIn) {
       this.router.navigateByUrl('/signIn');
     } else {
       this.router.navigateByUrl('/signUp');
     }
   }
-  newHotelReg(){
-
+  newHotelReg() {
+    this.show = true
+    this.formDetails()
   }
 
-  viewHotels(){
-    
+  viewHotels() {
+
+  }
+  formDetails() {
+    this.hoteRegiForm = this.formBuilder.group({
+      ownerName: ['Poonam Patil', [Validators.required]],
+      mob: [989898999, [Validators.maxLength(10), Validators.pattern("^[0-9]*$")]],
+      hotelName: [],
+      password: [],
+
+    })
   }
 
+  register() {
+    this.apicallService.postApiCall(this.hoteRegiForm.value, 'hotelRegister').subscribe(resp => {
+      this.show = false
+    })
+  }
 }
