@@ -12,11 +12,15 @@ export class OwnerLandingComponent {
   hoteRegiForm!: FormGroup;
   fromSignIn: any;
   show: boolean = false
+  allHotelData: any;
+  userName:any //signin form
+  list!: any[];
   constructor(private router: Router,
     private apicallService: ApicallService,
     private formBuilder: FormBuilder,) { }
 
   ngOnInit() {
+   this.userName = this.apicallService.userName;
 
     this.fromSignIn = this.apicallService.fromSignIn;
 
@@ -35,11 +39,12 @@ export class OwnerLandingComponent {
   }
 
   viewHotels() {
-
+   this.getAllHotelsFromDB();
+  
   }
   formDetails() {
     this.hoteRegiForm = this.formBuilder.group({
-      ownerName: ['Poonam Patil', [Validators.required]],
+      ownerName: ['Poonam', [Validators.required]],
       mob: [989898999, [Validators.maxLength(10), Validators.pattern("^[0-9]*$")]],
       hotelName: [],
       password: [],
@@ -52,4 +57,22 @@ export class OwnerLandingComponent {
       this.show = false
     })
   }
+
+ async getAllHotelsFromDB(){
+  this.allHotelData =   await this.apicallService.getUserData('hotelRegister').toPromise()
+   console.log('this.allHotelData',this.allHotelData);
+   this.getHotelListBuOwner();
+}
+getHotelListBuOwner(){
+ this.list = []
+if( this.allHotelData.length > 0){
+  this.allHotelData.forEach((item:any)=>{
+     if(item.ownerName == this.userName){
+      this.list.push(item)
+     }
+  })
+}
+console.log('list',this.list);
+
+}
 }

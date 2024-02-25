@@ -2,7 +2,7 @@
   "admin": [
     {
       "id": "2be3",
-      "fullName": "poonam",
+      "fullName": "Poonam",
       "mob": 989898999,
       "gender": "female",
       "pan": null,
@@ -24,7 +24,7 @@
   "owner": [
     {
       "id": "2be3",
-      "fullName": "poonam",
+      "fullName": "Poonam",
       "mob": 989898999,
       "gender": "female",
       "pan": null,
@@ -47,16 +47,29 @@
   "hotelRegister": [
     {
       "id": "4b52",
-      "ownerName": "Poonam Patil",
+      "ownerName": "Poonam",
       "mob": 989898999,
       "hotelName": "Sai Palace",
       "password": "poo@123"
     },
     {
       "id": "414b",
-      "ownerName": "Poonam Patil",
+      "ownerName": "Poonam",
       "mob": 989898999,
       "hotelName": "Hotel Samarth",
+      "password": "poo@123"
+    },
+    {
+      "id": "4b52",
+      "ownerName": "Jay",
+      "mob": 989898999,
+      "hotelName": "Siddhi hotel",
+      "password": "poo@123"
+    },{
+      "id": "4b52",
+      "ownerName": "Jay",
+      "mob": 989898999,
+      "hotelName": "JaySai hotel",
       "password": "poo@123"
     }
   ],
