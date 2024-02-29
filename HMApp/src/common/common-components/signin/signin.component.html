@@ -24,7 +24,7 @@
         <label> Password</label><br>
 
         <input [type]=" isShowPass ? 'text' : 'password' " #pass="ngModel" ngModel
-         name="password" 
+         name="password"
          required >
         <!-- pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$" -->
          <i class="bi bi-eye-fill eye-icon" *ngIf="isShowPass" (click)="toShowPassword()"></i>

@@ -2,7 +2,7 @@
 <button mat-raised-button color="accent" (click)="newHotelReg()">New Hotel Register</button>
 <button mat-raised-button color="accent" (click)="viewHotels()">View Hotels</button>
 
-<div *ngIf="show">
+<div *ngIf="showRegForm">
     <form [formGroup]="hoteRegiForm">
 
         <mat-form-field class="form-fields">
@@ -53,4 +53,20 @@
             [disabled]="!hoteRegiForm.valid">Regester</button>
 
     </form>
+</div>
+
+<div *ngIf="showHotels">
+    <table>
+        <tr>
+            <th *ngFor="let headings of tableHeading">{{headings}}</th>
+        </tr>
+        <tr *ngFor="let data of list" >
+            <td>{{data.hotelName}}</td>
+            <td>{{data.hotelContact}}</td>
+            <td>{{data.city}}</td>
+            <td>{{data.speciality}}</td>
+            <td><mat-icon>edit</mat-icon></td>
+            <td><mat-icon>delete</mat-icon></td>
+        </tr>
+    </table>
 </div>

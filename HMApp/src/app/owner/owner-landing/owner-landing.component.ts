@@ -11,10 +11,12 @@ import { ApicallService } from 'src/common/commonServices/apicall.service';
 export class OwnerLandingComponent {
   hoteRegiForm!: FormGroup;
   fromSignIn: any;
-  show: boolean = false
+  showRegForm : boolean = false;
+  showHotels  : boolean = false;
   allHotelData: any;
   userName:any //signin form
   list!: any[];
+  tableHeading = ['Hotel Name',"Hotel contact","City","Speciality","Edit","Delete"]
   constructor(private router: Router,
     private apicallService: ApicallService,
     private formBuilder: FormBuilder,) { }
@@ -27,6 +29,7 @@ export class OwnerLandingComponent {
   }
 
   back() {
+    
     if (this.fromSignIn) {
       this.router.navigateByUrl('/signIn');
     } else {
@@ -34,13 +37,16 @@ export class OwnerLandingComponent {
     }
   }
   newHotelReg() {
-    this.show = true
+    this.showRegForm = true;
+    this.showHotels = false;
+    // /owner/newReg
     this.formDetails()
   }
 
   viewHotels() {
    this.getAllHotelsFromDB();
-  
+   this.showHotels = true;
+   this.showRegForm =false;
   }
   formDetails() {
     this.hoteRegiForm = this.formBuilder.group({
@@ -54,7 +60,7 @@ export class OwnerLandingComponent {
 
   register() {
     this.apicallService.postApiCall(this.hoteRegiForm.value, 'hotelRegister').subscribe(resp => {
-      this.show = false
+      this.showRegForm = false
     })
   }
 
