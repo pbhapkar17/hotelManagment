@@ -51,9 +51,9 @@
       "mob": 989898999,
       "hotelName": "Sai Palace",
       "password": "poo@123",
-      "city":"Mumbai",
-      "hotelContact":777777,
-      "speciality":"veg"
+      "city": "Mumbai",
+      "hotelContact": 777777,
+      "speciality": "veg"
     },
     {
       "id": "414b",
@@ -61,9 +61,9 @@
       "mob": 989898999,
       "hotelName": "Hotel Samarth",
       "password": "poo@123",
-      "city":"Mumbai",
-      "hotelContact":777777,
-      "speciality":"nonveg"
+      "city": "Mumbai",
+      "hotelContact": 777777,
+      "speciality": "nonveg"
     },
     {
       "id": "4b52",
@@ -71,18 +71,26 @@
       "mob": 989898999,
       "hotelName": "Siddhi hotel",
       "password": "poo@123",
-      "city":"Mumbai",
-      "hotelContact":777777,
-      "speciality":"nonveg"
-    },{
+      "city": "Mumbai",
+      "hotelContact": 777777,
+      "speciality": "nonveg"
+    },
+    {
       "id": "4b52",
       "ownerName": "Jay",
       "mob": 989898999,
       "hotelName": "JaySai hotel",
       "password": "poo@123",
-      "city":"Mumbai",
-      "hotelContact":777777,
-      "speciality":"veg"
+      "city": "Mumbai",
+      "hotelContact": 777777,
+      "speciality": "veg"
+    },
+    {
+      "id": "b7ba",
+      "ownerName": "Poonam",
+      "mob": "44444444",
+      "hotelName": "Omsai",
+      "password": "2222"
     }
   ],
   "hotelBooking": []

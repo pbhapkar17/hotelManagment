@@ -49,10 +49,12 @@
         </mat-form-field>
         <br>
 
-        <button mat-raised-button color="accent" class="btn" (click)="register()"
-            [disabled]="!hoteRegiForm.valid">Regester</button>
-
-    </form>
+        <button *ngIf="this.dataById.length ==0" mat-raised-button color="accent" class="btn" (click)="register()"
+            [disabled]="!hoteRegiForm.valid">Register</button>
+        <button  *ngIf="this.dataById.length > 0" mat-raised-button color="accent" class="btn" (click)="update()"
+            [disabled]="!hoteRegiForm.valid">Update</button>
+        
+        </form>
 </div>
 
 <div *ngIf="showHotels">
@@ -65,7 +67,7 @@
             <td>{{data.hotelContact}}</td>
             <td>{{data.city}}</td>
             <td>{{data.speciality}}</td>
-            <td><mat-icon>edit</mat-icon></td>
+            <td><mat-icon (click)="edit(data.id)">edit</mat-icon></td>
             <td><mat-icon>delete</mat-icon></td>
         </tr>
     </table>

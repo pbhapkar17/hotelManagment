@@ -17,13 +17,14 @@ export class OwnerLandingComponent {
   userName:any //signin form
   list!: any[];
   tableHeading = ['Hotel Name',"Hotel contact","City","Speciality","Edit","Delete"]
+  dataById: any[]=[];
   constructor(private router: Router,
     private apicallService: ApicallService,
     private formBuilder: FormBuilder,) { }
 
   ngOnInit() {
    this.userName = this.apicallService.userName;
-
+    
     this.fromSignIn = this.apicallService.fromSignIn;
 
   }
@@ -39,6 +40,7 @@ export class OwnerLandingComponent {
   newHotelReg() {
     this.showRegForm = true;
     this.showHotels = false;
+    this.dataById = []
     // /owner/newReg
     this.formDetails()
   }
@@ -50,10 +52,10 @@ export class OwnerLandingComponent {
   }
   formDetails() {
     this.hoteRegiForm = this.formBuilder.group({
-      ownerName: ['Poonam', [Validators.required]],
-      mob: [989898999, [Validators.maxLength(10), Validators.pattern("^[0-9]*$")]],
-      hotelName: [],
-      password: [],
+      ownerName: [ this.dataById[0]?.ownerName ? this.dataById[0].ownerName : 'Poonam', [Validators.required]],
+      mob: [this.dataById[0]?.mob ? this.dataById[0].mob : 989898999, [Validators.maxLength(10), Validators.pattern("^[0-9]*$")]],
+      hotelName: [this.dataById[0]?.hotelName ? this.dataById[0].hotelName :''],
+      password: [this.dataById[0]?.password ? this.dataById[0].password :''],
 
     })
   }
@@ -81,4 +83,23 @@ if( this.allHotelData.length > 0){
 console.log('list',this.list);
 
 }
+edit(id:any){
+  this.dataById= [];
+  console.log(this.list);
+  this.list.forEach(item=>{
+   if(item.id == id) {
+    this.dataById.push(item)
+   }
+  })
+  this.showHotels =false;
+  this.showRegForm =true;
+  this.formDetails()
+}
+update(){
+  this.apicallService.patchApiCall(this.dataById[0].id, this.hoteRegiForm.value, "hotelRegister").subscribe(res=>{
+    this.showRegForm =false;
+  })
+}
+
+
 }
